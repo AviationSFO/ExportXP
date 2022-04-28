@@ -7,7 +7,7 @@
 local data = {}
 
 -- this function retrieves the current aircraft's data and stores it in a table
--- from X-Plane's API for later export
+-- from X-Plane's API for use elsewhere
 function getData(data)
     -- get the data from the flight model
     dataref("lat", "sim/flightmodel/position/latitude")
