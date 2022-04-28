@@ -13,12 +13,12 @@ Export XP exports its data when run to a log file in your FlyWithLua scripts dir
 ```
 longitude,
 latitude,
-altitude(in meters),
-heading(true),
-groundspeed(meters/second),
-vertical speed(fpm),
-pitch(degrees),
-bank(degrees),
+altitude (in meters),
+heading (true),
+groundspeed (meters/second),
+vertical speed (fpm),
+pitch (degrees),
+bank (degrees),
 ```
 
 # Installation
