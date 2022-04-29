@@ -7,17 +7,17 @@
 local data = {}
 
 -- this function retrieves the current aircraft's data and stores it in a table
--- from X-Plane's API for use elsewhere
+-- from X-Plane's API for later export
 function getData(data)
     -- get the data from the flight model
-    dataref("lat", "sim/flightmodel/position/latitude")
-    dataref("lon", "sim/flightmodel/position/longitude")
-    dataref("alt", "sim/flightmodel/position/elevation")
-    dataref("hdg", "sim/flightmodel/position/true_psi")
-    dataref("gs", "sim/flightmodel/position/groundspeed")
-    dataref("vs", "sim/flightmodel/position/vh_ind_fpm")
-    dataref("pitch", "sim/flightmodel/position/true_theta")
-    dataref("roll", "sim/flightmodel/position/phi")
+    dataref("lat", "sim/flightmodel/position/latitude", "readonly")
+    dataref("lon", "sim/flightmodel/position/longitude", "readonly")
+    dataref("alt", "sim/flightmodel/position/elevation", "readonly")
+    dataref("hdg", "sim/flightmodel/position/true_psi", "readonly")
+    dataref("gs", "sim/flightmodel/position/groundspeed", "readonly")
+    dataref("vs", "sim/flightmodel/position/vh_ind_fpm", "readonly")
+    dataref("pitch", "sim/flightmodel/position/true_theta", "readonly")
+    dataref("roll", "sim/flightmodel/position/phi", "readonly")
     -- Applying to data array
     data.lat = lat
     data.lon = lon
@@ -56,4 +56,4 @@ function main()
     exportData(data)
 end
 
-doEveryDraw("main()")
+do_every_draw("main()")
