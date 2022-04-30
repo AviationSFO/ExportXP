@@ -8,6 +8,10 @@ Export XP is a plugin for [FlyWithLua](https://github.com/X-Friese/FlyWithLua) t
 
 Export XP exports its data when run to a log file in your FlyWithLua scripts directory called `ExportXP.txt`. You can write another program to retrieve the data from this file for however you like.
 
+## Enabling the script
+
+As of v0.2, by default ExportXP is disabled in FlyWithLua macro settings. To enable it, go to the plugins menu at the top of the screen, FlyWithLua, FlyWithLua Macros, and click ExportXP so that it has a white circle next to it.
+
 ### Format of the log file
 
 ```
