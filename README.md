@@ -6,7 +6,7 @@ Export XP is a plugin for [FlyWithLua](https://github.com/X-Friese/FlyWithLua) t
 
 ## How to use Export XP
 
-Export XP exports its data when run to a log file in your FlyWithLua scripts directory called `ExportXP.txt`. You can write another program to retrieve the data from this file for however you like.
+Export XP exports its data when run to a log file in your X-Plane root directory called `ExportXP.txt`. You can write another program to retrieve the data from this file for however you like.
 
 ## Enabling the script
 
