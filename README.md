@@ -27,7 +27,7 @@ bank (degrees),
 -!- ENGINE DATA -!-
 engine 1 N1 (percent),
 engine 2 N1 (percent),
-"-!- FUEL DATA -!-
+-!- FUEL DATA -!-
 fuel weight (kgs),
 ```
 
