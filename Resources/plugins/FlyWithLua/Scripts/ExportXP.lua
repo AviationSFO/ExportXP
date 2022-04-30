@@ -6,6 +6,10 @@
 
 local data = {}
 
+-- Adding toggle macro
+active = false
+add_macro("Toggle ExportXP", "active = true", "active = false", "deactivate")
+
 -- this function retrieves the current aircraft's data and stores it in a table
 -- from X-Plane's API for later export
 function getData(data)
@@ -51,9 +55,11 @@ function exportData(data)
 end
 
 function main()
-    data = {}
-    data = getData(data)
-    exportData(data)
+    if(active) then
+        data = {}
+        data = getData(data)
+        exportData(data)
+    end
 end
 
 do_every_draw("main()")
