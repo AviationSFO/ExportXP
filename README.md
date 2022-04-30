@@ -15,6 +15,7 @@ As of v0.2, by default ExportXP is disabled in FlyWithLua macro settings. To ena
 ### Format of the log file
 
 ```
+-!- POSITION/FLIGHT MODEL DATA -!-
 longitude,
 latitude,
 altitude (in meters),
@@ -23,6 +24,11 @@ groundspeed (meters/second),
 vertical speed (fpm),
 pitch (degrees),
 bank (degrees),
+-!- ENGINE DATA -!-
+engine 1 N1 (percent),
+engine 2 N1 (percent),
+"-!- FUEL DATA -!-
+fuel weight (kgs),
 ```
 
 # Installation

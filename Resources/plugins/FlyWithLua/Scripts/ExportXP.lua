@@ -22,6 +22,10 @@ function getData(data)
     dataref("vs", "sim/flightmodel/position/vh_ind_fpm", "readonly")
     dataref("pitch", "sim/flightmodel/position/true_theta", "readonly")
     dataref("roll", "sim/flightmodel/position/phi", "readonly")
+    dataref("eng1_rpm", "sim/flightmodel/engine/ENGN_N1_[0]", "readonly")
+    dataref("eng2_rpm", "sim/flightmodel/engine/ENGN_N1_[1]", "readonly")
+    dataref("fuel_wgt", "sim/flightmodel/weight/m_fuel_total", "readonly")
+
     -- Applying to data array
     data.lat = lat
     data.lon = lon
@@ -31,6 +35,10 @@ function getData(data)
     data.vs = vs
     data.pitch = pitch
     data.roll = roll
+    data.eng1_rpm = eng1_rpm
+    data.eng2_rpm = eng2_rpm
+    data.fuel_wgt = fuel_wgt
+
     return data
 end
 
@@ -43,6 +51,7 @@ function exportData(data)
     file:close()
     -- adding data
     file = io.open("ExportXP.txt", "a")
+    file:write("-!- POSITION/FLIGHT MODEL DATA -!-\n")
     file:write(data.lat, ",\n")
     file:write(data.lon, ",\n")
     file:write(data.alt, ",\n")
@@ -51,6 +60,11 @@ function exportData(data)
     file:write(data.vs, ",\n")
     file:write(data.pitch, ",\n")
     file:write(data.roll, ",\n")
+    file:write("-!- ENGINE DATA -!-\n")
+    file:write(data.eng1_rpm, ",\n")
+    file:write(data.eng2_rpm, ",\n")
+    file:write("-!- FUEL DATA -!-\n")
+    file:write(data.fuel_wgt, ",\n")
     file:close()
 end
 
