@@ -1,4 +1,8 @@
 # Export XP
+<p align="center"> 
+    <br>
+    <img src="https://img.shields.io/badge/X--Plane-11.50%2B-blue"/> <img src="https://img.shields.io/badge/FlyWithLUA-2.7%2B-blue" /> <br>
+</p>
 
 ## What is Export XP?
 
