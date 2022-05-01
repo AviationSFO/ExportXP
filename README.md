@@ -37,8 +37,8 @@ fuel weight (kgs),
 payload weight (kgs),
 -!- MECHANICAL DATA -!-
 landing gear position (percent),
-flaps 1 position (percent),
-flaps 2 position (percent),
+flaps 1 position (degrees),
+flaps 2 position (degrees),
 spoiler deployment (degrees),
 elevator 1 position (degrees),
 elevator 2 position (degrees),
@@ -47,6 +47,7 @@ rudder 2 position (degrees),
 aileron 1 position (degrees),
 aileron 2 position (degrees),
 ```
+Extra note: If alternate dataref source is on, then mechanichal data will all be percents instead of degrees.
 
 # Installation
 
