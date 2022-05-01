@@ -8,7 +8,9 @@ data = {}
 
 -- Adding toggle macro
 active = false
+altdr = false
 add_macro("Toggle ExportXP", "active = true", "active = false", "deactivate")
+add_macro("ExportXP - Alternate Dataref Source", "altdr = true", "altdr = false", "deactivate")
 
 -- this function retrieves the current aircraft's data and stores it in a table
 -- from X-Plane's API for later export
@@ -33,15 +35,27 @@ function getData()
     dataref("payload_wgt", "sim/flightmodel/weight/m_fixed", "readonly")
     
     dataref("gear1", "sim/flightmodel/movingparts/gear1def", "readonly")
-    dataref("flap1_pos", "sim/flightmodel/controls/fla1_def", 0, "readonly")
-    dataref("flap2_pos", "sim/flightmodel/controls/fla2_def", 0, "readonly")
-    dataref("spoiler", "sim/flightmodel/controls/splr_def", "readonly")
-    dataref("elv1", "sim/flightmodel/controls/elv1_def", 0, "readonly")
-    dataref("elv2", "sim/flightmodel/controls/elv2_def", 0, "readonly")
-    dataref("rudd1", "sim/flightmodel/controls/rudd_def", 0, "readonly")
-    dataref("rudd2", "sim/flightmodel/controls/rudd2_def", 0, "readonly")
-    dataref("ail1", "sim/flightmodel/controls/lail1def", "readonly")
-    dataref("ail2", "sim/flightmodel/controls/rail1def", "readonly")
+    if (altdr ~= true) then
+        dataref("flap1_pos", "sim/flightmodel/controls/fla1_def", 0, "readonly")
+        dataref("flap2_pos", "sim/flightmodel/controls/fla2_def", 0, "readonly")
+        dataref("spoiler", "sim/flightmodel/controls/splr_def", "readonly")
+        dataref("elv1", "sim/flightmodel/controls/elv1_def", 0, "readonly")
+        dataref("elv2", "sim/flightmodel/controls/elv2_def", 0, "readonly")
+        dataref("rudd1", "sim/flightmodel/controls/rudd_def", 0, "readonly")
+        dataref("rudd2", "sim/flightmodel/controls/rudd2_def", 0, "readonly")
+        dataref("ail1", "sim/flightmodel/controls/lail1def", "readonly")
+        dataref("ail2", "sim/flightmodel/controls/rail1def", "readonly")
+    else
+        dataref("flap1_pos", "sim/flightmodel/controls/flap1_rat", 0, "readonly")
+        dataref("flap2_pos", "sim/flightmodel/controls/flap2_rat", 0, "readonly")
+        dataref("spoiler", "sim/flightmodel/controls/spoiler_rat", "readonly")
+        dataref("elv1", "sim/flightmodel/controls/elv1_rat", 0, "readonly")
+        dataref("elv2", "sim/flightmodel/controls/elv2_rat", 0, "readonly")
+        dataref("rudd1", "sim/flightmodel/controls/rudd_rat", 0, "readonly")
+        dataref("rudd2", "sim/flightmodel/controls/rudd2_rat", 0, "readonly")
+        dataref("ail1", "sim/flightmodel/controls/ail1_rat", "readonly")
+        dataref("ail2", "sim/flightmodel/controls/ail2_rat", "readonly")
+    end
 
 
     -- Applying to data array
