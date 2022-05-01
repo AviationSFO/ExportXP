@@ -4,7 +4,7 @@
 -- Author: Steven Weinstein (AviationSFO)
 -- Tested X-Plane and FWL versions: 11.55r2, 2.7.32
 
-local data = {}
+data = {}
 
 -- Adding toggle macro
 active = false
@@ -12,7 +12,7 @@ add_macro("Toggle ExportXP", "active = true", "active = false", "deactivate")
 
 -- this function retrieves the current aircraft's data and stores it in a table
 -- from X-Plane's API for later export
-function getData(data)
+function getData()
     -- get the data from the flight model
     dataref("acf_type", "sim/aircraft/view/acf_ICAO")
     dataref("acf_name", "sim/aircraft/view/acf_tailnum")
@@ -26,11 +26,22 @@ function getData(data)
     dataref("pitch", "sim/flightmodel/position/true_theta", "readonly")
     dataref("roll", "sim/flightmodel/position/phi", "readonly")
 
-    dataref("eng1_rpm", "sim/flightmodel/engine/ENGN_N1_[0]", "readonly")
-    dataref("eng2_rpm", "sim/flightmodel/engine/ENGN_N1_[1]", "readonly")
+    dataref("eng1_rpm", "sim/flightmodel/engine/ENGN_N1_", 0, "readonly")
+    dataref("eng2_rpm", "sim/flightmodel/engine/ENGN_N1_", 1, "readonly")
 
     dataref("fuel_wgt", "sim/flightmodel/weight/m_fuel_total", "readonly")
     dataref("payload_wgt", "sim/flightmodel/weight/m_fixed", "readonly")
+    
+    dataref("gear1", "sim/flightmodel/movingparts/gear1def", "readonly")
+    dataref("flap1_pos", "sim/flightmodel/controls/fla1_def", 0, "readonly")
+    dataref("flap2_pos", "sim/flightmodel/controls/fla2_def", 0, "readonly")
+    dataref("spoiler", "sim/flightmodel/controls/splr_def", "readonly")
+    dataref("elv1", "sim/flightmodel/controls/elv1_def", 0, "readonly")
+    dataref("elv2", "sim/flightmodel/controls/elv2_def", 0, "readonly")
+    dataref("rudd1", "sim/flightmodel/controls/rudd_def", 0, "readonly")
+    dataref("rudd2", "sim/flightmodel/controls/rudd2_def", 0, "readonly")
+    dataref("ail1", "sim/flightmodel/controls/lail1def", "readonly")
+    dataref("ail2", "sim/flightmodel/controls/rail1def", "readonly")
 
 
     -- Applying to data array
@@ -46,15 +57,23 @@ function getData(data)
     data.eng2_rpm = eng2_rpm
     data.fuel_wgt = fuel_wgt
     data.payload_wgt = payload_wgt
+    data.gear1 = gear1
+    data.flap1_pos = flap1_pos
+    data.flap2_pos = flap2_pos
+    data.spoiler = spoiler
+    data.elv1 = elv1
+    data.elv2 = elv2
+    data.rudd1 = rudd1
+    data.rudd2 = rudd2
+    data.ail1 = ail1
+    data.ail2 = ail2
 
     data.acf_type = acf_type
     data.acf_name = acf_name
-
-    return data
 end
 
 -- this function exports data to output file
-function exportData(data)
+function exportData()
     -- export the data to a file
     -- clearing file
     local file = io.open("ExportXP.txt", "w")
@@ -78,14 +97,25 @@ function exportData(data)
     file:write("-!- WEIGHT DATA -!-\n")
     file:write(data.fuel_wgt, ",\n")
     file:write(data.payload_wgt, ",\n")
+    file:write("-!- MECHANICAL DATA -!-\n")
+    file:write(data.gear1, ",\n")
+    file:write(data.flap1_pos, ",\n")
+    file:write(data.flap2_pos, ",\n")
+    file:write(data.spoiler, ",\n")
+    file:write(data.elv1, ",\n")
+    file:write(data.elv2, ",\n")
+    file:write(data.rudd1, ",\n")
+    file:write(data.rudd2, ",\n")
+    file:write(data.ail1, ",\n")
+    file:write(data.ail2, ",\n")
     file:close()
 end
 
 function main()
     if(active) then
         data = {}
-        data = getData(data)
-        exportData(data)
+        getData()
+        exportData()
     end
 end
 

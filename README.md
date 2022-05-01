@@ -35,6 +35,17 @@ engine 2 N1 (percent),
 -!- WEIGHT DATA -!-
 fuel weight (kgs),
 payload weight (kgs),
+-!- MECHANICAL DATA -!-
+landing gear position (percent),
+flaps 1 position (percent),
+flaps 2 position (percent),
+spoiler deployment (degrees),
+elevator 1 position (degrees),
+elevator 2 position (degrees),
+rudder 1 position (degrees),
+rudder 2 position (degrees),
+aileron 1 position (degrees),
+aileron 2 position (degrees),
 ```
 
 # Installation
