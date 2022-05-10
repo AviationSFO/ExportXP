@@ -4,7 +4,7 @@
 -- Author: Steven Weinstein (AviationSFO)
 -- Tested X-Plane and FWL versions: 11.55r2, 2.7.32
 
-data = {}
+local data = {}
 
 -- Adding toggle macro
 active = false
@@ -30,6 +30,8 @@ function getData()
 
     dataref("eng1_rpm", "sim/flightmodel/engine/ENGN_N1_", 0, "readonly")
     dataref("eng2_rpm", "sim/flightmodel/engine/ENGN_N1_", 1, "readonly")
+    dataref("eng3_rpm", "sim/flightmodel/engine/ENGN_N1_", 2, "readonly")
+    dataref("eng4_rpm", "sim/flightmodel/engine/ENGN_N1_", 3, "readonly")
 
     dataref("fuel_wgt", "sim/flightmodel/weight/m_fuel_total", "readonly")
     dataref("payload_wgt", "sim/flightmodel/weight/m_fixed", "readonly")
@@ -59,6 +61,8 @@ function getData()
     data.roll = roll
     data.eng1_rpm = eng1_rpm
     data.eng2_rpm = eng2_rpm
+    data.eng3_rpm = eng3_rpm
+    data.eng4_rpm = eng4_rpm
     data.fuel_wgt = fuel_wgt
     data.payload_wgt = payload_wgt
     data.gear1 = gear1
@@ -85,7 +89,7 @@ function exportData()
     file:close()
     -- adding data
     file = io.open("ExportXP.txt", "a")
-    file:write(data.acf_type .. " " .. data.acf_name .. "\n")
+    file:write("-!- ACF -!- " .. data.acf_type .. " " .. data.acf_name .. "\n")
     file:write("-!- POSITION/FLIGHT MODEL DATA -!-\n")
     file:write(data.lat, ",\n")
     file:write(data.lon, ",\n")
@@ -98,6 +102,8 @@ function exportData()
     file:write("-!- ENGINE DATA -!-\n")
     file:write(data.eng1_rpm, ",\n")
     file:write(data.eng2_rpm, ",\n")
+    file:write(data.eng3_rpm, ",\n")
+    file:write(data.eng4_rpm, ",\n")
     file:write("-!- WEIGHT DATA -!-\n")
     file:write(data.fuel_wgt, ",\n")
     file:write(data.payload_wgt, ",\n")
