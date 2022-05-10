@@ -52,7 +52,7 @@ parkbrake position (percent),
 ```
 * Extra notes
   * If alternate dataref source is on, then mechanichal data will all be percents instead of degrees.
-  * To enable alternate datarefs, you need to reload all scripts after toggling the setting.
+  * To enable alternate datarefs, you need to reload all scripts in FlyWithLua after toggling the setting.
 
 
 
