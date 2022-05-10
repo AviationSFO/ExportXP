@@ -4,8 +4,12 @@
 -- Author: Steven Weinstein (AviationSFO)
 -- Tested X-Plane and FWL versions: 11.55r2, 2.7.32
 
+-- Setting up variables and settings
 local data = {}
 local altdr = false
+local prefs_file = io.open("Resources/plugins/FlyWithLua/ExportXP_prefs.txt", "w+")
+local prefs = prefs_file:read("*a")
+altdr = prefs
 
 -- Adding toggle macro
 active = false
@@ -16,6 +20,7 @@ local function change_dr()
     else
         altdr = true
     end
+    prefs_file:write(altdr)
     XPLMSpeakString("Please reload all lua scripts for changes to apply!")
     active = false
 end
