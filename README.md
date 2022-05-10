@@ -70,7 +70,7 @@ parkbrake position (percent),
 
 ### GitHub:
 
-1. Download and install the pre-requisites listed in the requirments section above.
+1. Download and install the pre-requisites listed in the [requirments section](#requirements) above.
 2. Go to the [GitHub repository](https://github.com/AviationSFO/ExportXP) and click on releases.
 3. Click on the latest release.
 4. Click on the `ExportXP.lua` download button.
