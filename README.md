@@ -60,7 +60,7 @@ parkbrake position (percent),
 
 ## Requirements
 
-- X-Plane 11.50 or later
+- [X-Plane 11.50 or later](https://x-plane.com)
 - [FlyWithLua NG](https://github.com/X-Friese/FlyWithLua)
 
 ## Download
