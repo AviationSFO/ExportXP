@@ -26,7 +26,7 @@ local function change_dr()
 end
 
 add_macro("Toggle ExportXP", "active = true", "active = false", "deactivate")
-add_macro("ExportXP - Alternate Dataref Source", "change_dr()", "change_dr()", "deactivate")
+add_macro("ExportXP - Alternate Dataref Source", "change_dr()")
 
 -- this function retrieves the current aircraft's data and stores it in a table
 -- from X-Plane's API for later export
