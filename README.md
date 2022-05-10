@@ -1,5 +1,6 @@
 # Export XP
 <p align="center"> 
+    <img src="https://img.shields.io/badge/ExportXP-beta-yellow"/>
     <br>
     <img src="https://img.shields.io/badge/X--Plane-11.50%2B-blue"/> <img src="https://img.shields.io/badge/FlyWithLUA-2.7%2B-blue" /> <br>
 </p>
