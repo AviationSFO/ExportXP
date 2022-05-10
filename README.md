@@ -49,7 +49,7 @@ rudder 2 position (degrees),
 aileron 1 position (degrees),
 aileron 2 position (degrees),
 ```
-~Extra note: If alternate dataref source is on, then mechanichal data will all be percents instead of degrees.~
+~Extra note: If alternate dataref source is on, then mechanichal data will all be percents instead of degrees.~ (Currently disabled)
 
 # Installation
 
