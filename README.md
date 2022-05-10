@@ -48,8 +48,13 @@ rudder 1 position (degrees),
 rudder 2 position (degrees),
 aileron 1 position (degrees),
 aileron 2 position (degrees),
+parkbrake position (percent),
 ```
-~Extra note: If alternate dataref source is on, then mechanichal data will all be percents instead of degrees.~ (Currently disabled)
+* Extra notes
+  * If alternate dataref source is on, then mechanichal data will all be percents instead of degrees.
+  * To enable alternate datarefs, you need to reload all scripts after toggling the setting.
+
+
 
 # Installation
 
