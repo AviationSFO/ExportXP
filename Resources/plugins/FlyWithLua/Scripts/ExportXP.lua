@@ -5,12 +5,23 @@
 -- Tested X-Plane and FWL versions: 11.55r2, 2.7.32
 
 local data = {}
+local altdr = false
 
 -- Adding toggle macro
 active = false
--- altdr = false
+local function change_dr()
+    if altdr then
+        altdr = false
+
+    else
+        altdr = true
+    end
+    XPLMSpeakString("Please reload all lua scripts for changes to apply!")
+    active = false
+end
+
 add_macro("Toggle ExportXP", "active = true", "active = false", "deactivate")
--- add_macro("ExportXP - Alternate Dataref Source", "altdr = true", "altdr = false", "deactivate")
+add_macro("ExportXP - Alternate Dataref Source", "change_dr()", "change_dr()", "deactivate")
 
 -- this function retrieves the current aircraft's data and stores it in a table
 -- from X-Plane's API for later export
@@ -37,7 +48,7 @@ function getData()
     dataref("payload_wgt", "sim/flightmodel/weight/m_fixed", "readonly")
     
     dataref("gear1", "sim/flightmodel/movingparts/gear1def", "readonly")
-    if (altdr ~= true) then
+    if (altdr == false) then
         dataref("flap1_pos", "sim/flightmodel/controls/fla1_def", 0, "readonly")
         dataref("flap2_pos", "sim/flightmodel/controls/fla2_def", 0, "readonly")
         dataref("spoiler", "sim/flightmodel/controls/splr_def", "readonly")
@@ -47,7 +58,20 @@ function getData()
         dataref("rudd2", "sim/flightmodel/controls/rudd2_def", 0, "readonly")
         dataref("ail1", "sim/flightmodel/controls/lail1def", "readonly")
         dataref("ail2", "sim/flightmodel/controls/rail1def", "readonly")
+        dataref("parkbrake", "sim/flightmodel/controls/parkbrake", "readonly")
+    else
+        dataref("flap1_pos", "sim/flightmodel/controls/flap1_rat", 0, "readonly")
+        dataref("flap2_pos", "sim/flightmodel/controls/flap2_rat", 0, "readonly")
+        dataref("spoiler", "sim/flightmodel/controls/spoiler_rat", "readonly")
+        dataref("elv1", "sim/flightmodel/controls/elv1_rat", 0, "readonly")
+        dataref("elv2", "sim/flightmodel/controls/elv2_rat", 0, "readonly")
+        dataref("rudd1", "sim/flightmodel/controls/rudd_rat", 0, "readonly")
+        dataref("rudd2", "sim/flightmodel/controls/rudd2_rat", 0, "readonly")
+        dataref("ail1", "sim/flightmodel/controls/ail1_rat", "readonly")
+        dataref("ail2", "sim/flightmodel/controls/ail2_rat", "readonly")
+        dataref("parkbrake", "sim/flightmodel/controls/parkbrake_rat", "readonly")
     end
+
 
 
     -- Applying to data array
@@ -75,6 +99,7 @@ function getData()
     data.rudd2 = rudd2
     data.ail1 = ail1
     data.ail2 = ail2
+    data.parkbrake = parkbrake
 
     data.acf_type = acf_type
     data.acf_name = acf_name
@@ -118,6 +143,7 @@ function exportData()
     file:write(data.rudd2, ",\n")
     file:write(data.ail1, ",\n")
     file:write(data.ail2, ",\n")
+    file:write(data.parkbrake, ",\n")
     file:close()
 end
 

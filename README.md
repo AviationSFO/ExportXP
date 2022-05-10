@@ -65,5 +65,5 @@ aileron 2 position (degrees),
 1. Download and install the pre-requisites listed in the requirments section above.
 2. Go to the [GitHub repository](https://github.com/AviationSFO/ExportXP) and click on releases.
 3. Click on the latest release.
-4. Click on the `source code zip` download button.
-5. Extract the contents of the zip file to your X-Plane root directory.
+4. Click on the `ExportXP.lua` download button.
+5. Drop the lua script into your FlyWithLua/Scripts folder.
