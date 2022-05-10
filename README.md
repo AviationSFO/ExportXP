@@ -32,6 +32,8 @@ bank (degrees),
 -!- ENGINE DATA -!-
 engine 1 N1 (percent),
 engine 2 N1 (percent),
+engine 3 N2 (percent),
+engine 4 N2 (percent),
 -!- WEIGHT DATA -!-
 fuel weight (kgs),
 payload weight (kgs),
