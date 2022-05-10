@@ -6,7 +6,10 @@
 
 ## What is Export XP?
 
-Export XP is a plugin for [FlyWithLua](https://github.com/X-Friese/FlyWithLua) that exports data taken from the [X-Plane 11](https://x-plane.com/) API and sends it to a log file for other programs to read. The difference between Export XP and other exporting plugins is that Export XP does not require network access as it writes to files on your disk. Unfortunately, this means that data from Export XP can not be used on a different system without writing your own script to export the data over network. The plugin is written in Lua X-Plane 11 built in API.
+Export XP is a plugin for [FlyWithLua](https://github.com/X-Friese/FlyWithLua) that exports data taken from the [X-Plane 11](https://x-plane.com/) API and sends it to a log file for other programs to read. The difference between Export XP and other exporting plugins is that Export XP does not require network access as it writes to files on your disk. Unfortunately, this means that data from Export XP can not be used on a different system without writing your own script to export the data over network. The plugin is written in Lua X-Plane 11 built in API. 
+
+
+Ready to install? Go to [the download section](#installation) and follow the instructions.
 
 ## How to use Export XP
 
