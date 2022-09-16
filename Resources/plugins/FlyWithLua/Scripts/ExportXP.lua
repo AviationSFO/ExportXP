@@ -48,6 +48,10 @@ function getData()
     dataref("eng2_rpm", "sim/flightmodel/engine/ENGN_N1_", 1, "readonly")
     dataref("eng3_rpm", "sim/flightmodel/engine/ENGN_N1_", 2, "readonly")
     dataref("eng4_rpm", "sim/flightmodel/engine/ENGN_N1_", 3, "readonly")
+    dataref("eng5_rpm", "sim/flightmodel/engine/ENGN_N1_", 4, "readonly")
+    dataref("eng6_rpm", "sim/flightmodel/engine/ENGN_N1_", 5, "readonly")
+    dataref("eng7_rpm", "sim/flightmodel/engine/ENGN_N1_", 6, "readonly")
+    dataref("eng8_rpm", "sim/flightmodel/engine/ENGN_N1_", 7, "readonly")
 
     dataref("fuel_wgt", "sim/flightmodel/weight/m_fuel_total", "readonly")
     dataref("payload_wgt", "sim/flightmodel/weight/m_fixed", "readonly")
@@ -92,6 +96,10 @@ function getData()
     data.eng2_rpm = eng2_rpm
     data.eng3_rpm = eng3_rpm
     data.eng4_rpm = eng4_rpm
+    data.eng5_rpm = eng5_rpm
+    data.eng6_rpm = eng6_rpm
+    data.eng7_rpm = eng7_rpm
+    data.eng8_rpm = eng8_rpm
     data.fuel_wgt = fuel_wgt
     data.payload_wgt = payload_wgt
     data.gear1 = gear1
@@ -134,6 +142,10 @@ function exportData()
     file:write(data.eng2_rpm, ",\n")
     file:write(data.eng3_rpm, ",\n")
     file:write(data.eng4_rpm, ",\n")
+    file:write(data.eng5_rpm, ",\n")
+    file:write(data.eng6_rpm, ",\n")
+    file:write(data.eng7_rpm, ",\n")
+    file:write(data.eng8_rpm, ",\n")
     file:write("-!- WEIGHT DATA -!-\n")
     file:write(data.fuel_wgt, ",\n")
     file:write(data.payload_wgt, ",\n")
