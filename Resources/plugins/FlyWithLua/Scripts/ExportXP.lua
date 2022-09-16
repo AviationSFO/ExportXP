@@ -13,21 +13,15 @@ altdr = prefs
 
 -- Adding toggle macro
 active = false
-local function change_dr()
-    altdr = not altdr
-    prefs_file:write(altdr)
-    XPLMSpeakString("Please reload all lua scripts for changes to apply!")
-    logMsg("Please reload all lua scripts for changes to apply!")
-    active = false
-end
+
 
 add_macro("Toggle ExportXP", "active = true; logMsg('ExportXP Active')", "active = false", "deactivate")
-add_macro("ExportXP - Alternate Dataref Source", "change_dr()")
 
 -- this function retrieves the current aircraft's data and stores it in a table
 -- from X-Plane's API for later export
 function getData()
     -- get the data from the flight model
+    -- position and orientation
     dataref("alt", "sim/flightmodel/position/elevation", "readonly")
     dataref("hdg", "sim/flightmodel/position/true_psi", "readonly")
     dataref("gs", "sim/flightmodel/position/groundspeed", "readonly")
@@ -35,6 +29,7 @@ function getData()
     dataref("pitch", "sim/flightmodel/position/true_theta", "readonly")
     dataref("roll", "sim/flightmodel/position/phi", "readonly")
 
+    -- engines
     dataref("eng1_rpm", "sim/flightmodel/engine/ENGN_N1_", 0, "readonly")
     dataref("eng2_rpm", "sim/flightmodel/engine/ENGN_N1_", 1, "readonly")
     dataref("eng3_rpm", "sim/flightmodel/engine/ENGN_N1_", 2, "readonly")
@@ -44,33 +39,34 @@ function getData()
     dataref("eng7_rpm", "sim/flightmodel/engine/ENGN_N1_", 6, "readonly")
     dataref("eng8_rpm", "sim/flightmodel/engine/ENGN_N1_", 7, "readonly")
 
+    -- payloads
     dataref("fuel_wgt", "sim/flightmodel/weight/m_fuel_total", "readonly")
     dataref("payload_wgt", "sim/flightmodel/weight/m_fixed", "readonly")
     
+    -- landing gear
     dataref("gear1", "sim/flightmodel/movingparts/gear1def", "readonly")
-    if (altdr == false) then
-        dataref("flap1_pos", "sim/flightmodel/controls/fla1_def", 0, "readonly")
-        dataref("flap2_pos", "sim/flightmodel/controls/fla2_def", 0, "readonly")
-        dataref("spoiler", "sim/flightmodel/controls/splr_def", "readonly")
-        dataref("elv1", "sim/flightmodel/controls/elv1_def", 0, "readonly")
-        dataref("elv2", "sim/flightmodel/controls/elv2_def", 0, "readonly")
-        dataref("rudd1", "sim/flightmodel/controls/rudd_def", 0, "readonly")
-        dataref("rudd2", "sim/flightmodel/controls/rudd2_def", 0, "readonly")
-        dataref("ail1", "sim/flightmodel/controls/lail1def", "readonly")
-        dataref("ail2", "sim/flightmodel/controls/rail1def", "readonly")
-        dataref("parkbrake", "sim/flightmodel/controls/parkbrake", "readonly")
-    else
-        dataref("flap1_pos", "sim/flightmodel/controls/flap1_rat", 0, "readonly")
-        dataref("flap2_pos", "sim/flightmodel/controls/flap2_rat", 0, "readonly")
-        dataref("spoiler", "sim/flightmodel/controls/spoiler_rat", "readonly")
-        dataref("elv1", "sim/flightmodel/controls/elv1_rat", 0, "readonly")
-        dataref("elv2", "sim/flightmodel/controls/elv2_rat", 0, "readonly")
-        dataref("rudd1", "sim/flightmodel/controls/rudd_rat", 0, "readonly")
-        dataref("rudd2", "sim/flightmodel/controls/rudd2_rat", 0, "readonly")
-        dataref("ail1", "sim/flightmodel/controls/ail1_rat", "readonly")
-        dataref("ail2", "sim/flightmodel/controls/ail2_rat", "readonly")
-        dataref("parkbrake", "sim/flightmodel/controls/parkbrake_rat", "readonly")
-    end
+
+
+    -- flight controls
+    dataref("flap1_pos", "sim/flightmodel/controls/fla1_def", 0, "readonly")
+    dataref("flap2_pos", "sim/flightmodel/controls/fla2_def", 0, "readonly")
+    dataref("spoilerL", "sim/flightmodel/controls/lsplr_def", "readonly")
+    dataref("spoilerR", "sim/flightmodel/controls/rsplr_def", "readonly")
+    dataref("elv1_1", "sim/flightmodel/controls/hstab1_elv1def", "readonly")
+    dataref("elv1_2", "sim/flightmodel/controls/hstab1_elv2def", "readonly")
+    dataref("elv2_1", "sim/flightmodel/controls/hstab2_elv1def", "readonly")
+    dataref("elv2_2", "sim/flightmodel/controls/hstab2_elv2def", "readonly")
+    dataref("rudd1", "sim/flightmodel/controls/ldrudd_def", "readonly")
+    dataref("rudd2", "sim/flightmodel/controls/rdruddef", "readonly")
+    dataref("ail1l", "sim/flightmodel/controls/lail1def", "readonly")
+    dataref("ail2l", "sim/flightmodel/controls/lail2def", "readonly")
+    dataref("ail1r", "sim/flightmodel/controls/rail1def", "readonly")
+    dataref("ail2r", "sim/flightmodel/controls/rail2def", "readonly")
+    dataref("parkbrake", "sim/flightmodel/controls/parkbrake", "readonly")
+
+    -- military aircraft specific
+    dataref("tailhook", "sim/flightmodel/controls/tailhook_ratio", "readonly")
+    dataref("canopy", "sim/flightmodel/controls/canopy_ratio", "readonly")
 
 
 
@@ -96,7 +92,8 @@ function getData()
     data.gear1 = gear1
     data.flap1_pos = flap1_pos
     data.flap2_pos = flap2_pos
-    data.spoiler = spoiler
+    data.spoilerL = spoilerL
+    data.spoilerR = spoilerR
     data.elv1 = elv1
     data.elv2 = elv2
     data.rudd1 = rudd1
@@ -144,7 +141,8 @@ function exportData()
     file:write(data.gear1, ",\n")
     file:write(data.flap1_pos, ",\n")
     file:write(data.flap2_pos, ",\n")
-    file:write(data.spoiler, ",\n")
+    file:write(data.spoilerL, ",\n")
+    file:write(data.spoilerR, ",\n")
     file:write(data.elv1, ",\n")
     file:write(data.elv2, ",\n")
     file:write(data.rudd1, ",\n")
