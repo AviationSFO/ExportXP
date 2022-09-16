@@ -23,7 +23,7 @@ As of v0.2, by default ExportXP is disabled in FlyWithLua macro settings. To ena
 ### Format of the log file
 
 ```
--!- ACF -!- (aircraft ICAO) (tailnum)
+-!- FLIGHT INFO -!- (aircraft ICAO) (tailnum)
 -!- POSITION/FLIGHT MODEL DATA -!-
 longitude,
 latitude,
