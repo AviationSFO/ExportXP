@@ -74,6 +74,10 @@ function getData()
     dataref("wingsweep1", "sim/flightmodel/movingparts/wing_sweep1", "readonly")
     dataref("wingsweep2", "sim/flightmodel/movingparts/wing_sweep2", "readonly")
 
+    -- time data
+    dataref("zulu_secs", "sim/time/zulu_time_secs", "readonly")
+    dataref("days", "sim/time/local_date_days", "readonly")
+
 
 
     -- Applying to data array
@@ -130,6 +134,9 @@ function getData()
 
     data.acf_type = PLANE_ICAO
     data.acf_name = PLANE_TAILNUMBER
+
+    data.zulu_time = zulu_secs
+    data.days = days
 end
 
 -- this function exports data to output file
@@ -196,6 +203,10 @@ function exportData()
     file:write(data.canopy, ",\n")
     file:write(data.sweep1, ",\n")
     file:write(data.sweep2, ",\n")
+
+    file:write("-!- TIME DATA -!-\n")
+    file:write(data.zulu_time, ",\n")
+    file:write(data.days, ",\n")
 
     file:close()
 end
