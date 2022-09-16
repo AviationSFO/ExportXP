@@ -2,12 +2,12 @@
 <p align="center"> 
     <img src="https://img.shields.io/badge/ExportXP-beta-yellow"/>
     <br>
-    <img src="https://img.shields.io/badge/X--Plane-11.50%2B-blue"/> <img src="https://img.shields.io/badge/FlyWithLUA-2.7%2B-blue" /> <br>
+    <img src="https://img.shields.io/badge/X--Plane-11.50%2B-blue"/> <img src="https://img.shields.io/badge/X--Plane-12_EA%2B-blue"/> <img src="https://img.shields.io/badge/FlyWithLUA-2.7+%2B-blue" /> <br>
 </p>
 
 ## What is Export XP?
 
-Export XP is a plugin for [FlyWithLua](https://github.com/X-Friese/FlyWithLua) that exports data taken from the [X-Plane 11](https://x-plane.com/) API and sends it to a log file for other programs to read. The difference between Export XP and other exporting plugins is that Export XP does not require network access as it writes to files on your disk. Unfortunately, this means that data from Export XP can not be used on a different system without writing your own script to export the data over network. The plugin is written in Lua for X-Plane 11's built in API. 
+Export XP is a plugin for [FlyWithLua](https://github.com/X-Friese/FlyWithLua) that exports data taken from the [X-Plane 11 and 12 (EA)](https://x-plane.com/) API and sends it to a log file for other programs to read. The difference between Export XP and other exporting plugins is that Export XP does not require network access as it writes to files on your disk. Unfortunately, this means that data from Export XP can not be used on a different system without writing your own script to export the data over network. The plugin is written in Lua for X-Plane's built in API. 
 
 
 Ready to install? Go to [the download section](#installation) and follow the instructions.
@@ -64,8 +64,9 @@ parkbrake position (percent),
 
 ## Requirements
 
-- [X-Plane 11.50 or later](https://x-plane.com)
+- [X-Plane 11.50 and later or 12.00b1 early access and later](https://x-plane.com)
 - [FlyWithLua NG](https://github.com/X-Friese/FlyWithLua)
+  - Or [NG+](https://forums.x-plane.org/index.php?/files/file/82888-flywithlua-ng-next-generation-plus-edition-for-x-plane-12-win-lin-mac/) for X-Plane 12
 
 ## Download
 

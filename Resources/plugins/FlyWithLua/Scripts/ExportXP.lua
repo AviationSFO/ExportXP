@@ -1,8 +1,8 @@
--- ExportXP is a lightweight FlyWithLua script for X-Plane 11 that 
+-- ExportXP is a lightweight FlyWithLua script for X-Plane 11 and 12 (EA) that 
 -- exports main flight model characteristics out over a file 
 -- to be used by other programs
 -- Author: Steven Weinstein (AviationSFO)
--- Tested X-Plane and FWL versions: 11.55r2, 2.7.32
+-- Tested X-Plane and FWL versions: 11.55r2, 2.7.32; 12.00b3 2.8.00;
 
 -- Setting up variables and settings
 local data = {}
