@@ -27,11 +27,6 @@ add_macro("ExportXP - Alternate Dataref Source", "change_dr()")
 -- from X-Plane's API for later export
 function getData()
     -- get the data from the flight model
-    dataref("acf_type", "sim/aircraft/view/acf_ICAO")
-    dataref("acf_name", "sim/aircraft/view/acf_tailnum")
-
-    dataref("lat", "sim/flightmodel/position/latitude", "readonly")
-    dataref("lon", "sim/flightmodel/position/longitude", "readonly")
     dataref("alt", "sim/flightmodel/position/elevation", "readonly")
     dataref("hdg", "sim/flightmodel/position/true_psi", "readonly")
     dataref("gs", "sim/flightmodel/position/groundspeed", "readonly")
@@ -79,8 +74,8 @@ function getData()
 
 
     -- Applying to data array
-    data.lat = lat
-    data.lon = lon
+    data.lat = LATITUDE
+    data.lon = LONGITUDE
     data.alt = alt
     data.hdg = hdg
     data.gs = gs
@@ -109,8 +104,8 @@ function getData()
     data.ail2 = ail2
     data.parkbrake = parkbrake
 
-    data.acf_type = acf_type
-    data.acf_name = acf_name
+    data.acf_type = PLANE_ICAO
+    data.acf_name = PLANE_TAILNUMBER
 end
 
 -- this function exports data to output file
