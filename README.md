@@ -68,7 +68,7 @@ parkbrake position (percent),
 
 ## Requirements
 
-- [X-Plane 11.50 and later or 12.00b1 early access and later](https://x-plane.com)
+- [X-Plane 11.50 and later or 12.00b1 Early Access and later](https://x-plane.com)
 - [FlyWithLua NG](https://github.com/X-Friese/FlyWithLua)
   - Or [NG+](https://forums.x-plane.org/index.php?/files/file/82888-flywithlua-ng-next-generation-plus-edition-for-x-plane-12-win-lin-mac/) for X-Plane 12
 
@@ -81,3 +81,7 @@ parkbrake position (percent),
 3. Click on the latest release.
 4. Click on the `ExportXP.lua` download button.
 5. Drop the lua script into your FlyWithLua/Scripts folder.
+
+
+# Compatible Mods
+* Coming soon
