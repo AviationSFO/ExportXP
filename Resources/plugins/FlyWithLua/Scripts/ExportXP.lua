@@ -17,6 +17,7 @@ local function change_dr()
     altdr = not altdr
     prefs_file:write(altdr)
     XPLMSpeakString("Please reload all lua scripts for changes to apply!")
+    logMsg("Please reload all lua scripts for changes to apply!")
     active = false
 end
 
