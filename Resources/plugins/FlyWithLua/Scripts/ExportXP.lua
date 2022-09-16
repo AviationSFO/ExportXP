@@ -14,18 +14,13 @@ altdr = prefs
 -- Adding toggle macro
 active = false
 local function change_dr()
-    if altdr then
-        altdr = false
-
-    else
-        altdr = true
-    end
+    altdr = not altdr
     prefs_file:write(altdr)
     XPLMSpeakString("Please reload all lua scripts for changes to apply!")
     active = false
 end
 
-add_macro("Toggle ExportXP", "active = true", "active = false", "deactivate")
+add_macro("Toggle ExportXP", "active = true; logMsg('ExportXP Active')", "active = false", "deactivate")
 add_macro("ExportXP - Alternate Dataref Source", "change_dr()")
 
 -- this function retrieves the current aircraft's data and stores it in a table
