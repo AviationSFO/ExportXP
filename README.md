@@ -102,5 +102,9 @@ date (days since January 1),
 ### X-Plane.org:
 Coming soon!
 
+### OneDrive files:
+download the latest version from:
+https://1drv.ms/u/s!Ah8d1304CzM22khbDiioELlxLCGY?e=vanCLY
+
 # Compatible Mods
 * Coming soon
