@@ -22,6 +22,7 @@ function getData()
     -- position and orientation
     dataref("alt", "sim/flightmodel/position/elevation", "readonly")
     dataref("hdg", "sim/flightmodel/position/true_psi", "readonly")
+    dataref("hdg_indicated", "sim/cockpit/misc/compass_indicated", "readonly")
     dataref("gs", "sim/flightmodel/position/groundspeed", "readonly")
     dataref("vs", "sim/flightmodel/position/vh_ind_fpm", "readonly")
     dataref("pitch", "sim/flightmodel/position/true_theta", "readonly")
@@ -83,6 +84,7 @@ function getData()
     data.lon = LONGITUDE
     data.alt = alt
     data.hdg = hdg
+    data.hdg_indicated = hdg_indicated
     data.gs = gs
     data.vs = vs
     data.pitch = pitch
@@ -152,6 +154,7 @@ function exportData()
     file:write(data.lon, ",\n")
     file:write(data.alt, ",\n")
     file:write(data.hdg, ",\n")
+    file:write(data.hdg_indicated, ",\n")
     file:write(data.gs, ",\n")
     file:write(data.vs, ",\n")
     file:write(data.pitch, ",\n")
