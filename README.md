@@ -2,7 +2,7 @@
 <p align="center"> 
     <img src="https://img.shields.io/badge/ExportXP-v0.7pre-yellow"/>
     <br>
-    <img src="https://img.shields.io/badge/X--Plane-11.50%2B-blue"/> <img src="https://img.shields.io/badge/X--Plane-12_EA%2B-blue"/> <img src="https://img.shields.io/badge/FlyWithLUA-2.7%2B-blue" /> <br>
+    <img src="https://img.shields.io/badge/X--Plane-11.50%2B-blue"/> <img src="https://img.shields.io/badge/X--Plane-12_EA%2B-blue"/> <img src="https://img.shields.io/badge/FlyWithLUA-2.7/8%2B-blue" /> <br>
 </p>
 
 ## What is Export XP?
