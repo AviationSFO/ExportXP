@@ -6,16 +6,14 @@
 
 -- Setting up variables and settings
 local data = {}
-local altdr = false
 local prefs_file = io.open(SCRIPT_DIRECTORY .. "ExportXP_prefs.txt", "w+")
 local prefs = prefs_file:read("*a")
-altdr = prefs
 
 -- Adding toggle macro
 active = false
 
 
-add_macro("Toggle ExportXP", "active = true; logMsg('ExportXP Active')", "active = false", "deactivate")
+add_macro("Toggle ExportXP", "active = true; logMsg('ExportXP Activated')", "active = false; logMsg('ExportXP Deactivated')", "deactivate")
 
 -- this function retrieves the current aircraft's data and stores it in a table
 -- from X-Plane's API for later export
@@ -128,7 +126,6 @@ function getData()
     data.canopy = canopy
     data.sweep1 = wingsweep1
     data.sweep2 = wingsweep2
-
 
     data.parkbrake = parkbrake
 
