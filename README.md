@@ -2,7 +2,7 @@
 <p align="center"> 
     <img src="https://img.shields.io/badge/ExportXP-beta-yellow"/>
     <br>
-    <img src="https://img.shields.io/badge/X--Plane-11.50%2B-blue"/> <img src="https://img.shields.io/badge/X--Plane-12_EA%2B-blue"/> <img src="https://img.shields.io/badge/FlyWithLUA-2.7+%2B-blue" /> <br>
+    <img src="https://img.shields.io/badge/X--Plane-11.50%2B-blue"/> <img src="https://img.shields.io/badge/X--Plane-12_EA%2B-blue"/> <img src="https://img.shields.io/badge/FlyWithLUA-2.7%2B-blue" /> <br>
 </p>
 
 ## What is Export XP?
@@ -34,10 +34,14 @@ vertical speed (fpm),
 pitch (degrees),
 bank (degrees),
 -!- ENGINE DATA -!-
-engine 1 N1 (percent),
-engine 2 N1 (percent),
-engine 3 N2 (percent),
-engine 4 N2 (percent),
+engine 1 (percent),
+engine 2 (percent),
+engine 3 (percent),
+engine 4 (percent),
+engine 5 (percent),
+engine 6 (percent),
+engine 7 (percent),
+engine 8 (percent),
 -!- WEIGHT DATA -!-
 fuel weight (kgs),
 payload weight (kgs),
