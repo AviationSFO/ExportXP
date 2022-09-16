@@ -99,6 +99,8 @@ date (days since January 1),
 4. Click on the `ExportXP.lua` download button.
 5. Drop the lua script into your FlyWithLua/Scripts folder.
 
+### X-Plane.org:
+Coming soon!
 
 # Compatible Mods
 * Coming soon
