@@ -6,8 +6,8 @@
 
 -- Setting up variables and settings
 local data = {}
-local prefs_file = io.open(SCRIPT_DIRECTORY .. "ExportXP_prefs.txt", "w+")
-local prefs = prefs_file:read("*a")
+-- local prefs_file = io.open(SCRIPT_DIRECTORY .. "ExportXP_prefs.txt", "w+")
+-- local prefs = prefs_file:read("*a")
 
 -- Adding toggle macro
 active = false
