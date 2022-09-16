@@ -45,6 +45,10 @@ function getData()
     
     -- landing gear
     dataref("gear1", "sim/flightmodel/movingparts/gear1def", "readonly")
+    dataref("gear2", "sim/flightmodel/movingparts/gear2def", "readonly")
+    dataref("gear3", "sim/flightmodel/movingparts/gear3def", "readonly")
+    dataref("gear4", "sim/flightmodel/movingparts/gear4def", "readonly")
+    dataref("gear5", "sim/flightmodel/movingparts/gear5def", "readonly")
 
 
     -- flight controls
@@ -67,6 +71,8 @@ function getData()
     -- military aircraft specific
     dataref("tailhook", "sim/flightmodel/controls/tailhook_ratio", "readonly")
     dataref("canopy", "sim/flightmodel/controls/canopy_ratio", "readonly")
+    dataref("wingsweep1", "sim/flightmodel/movingparts/wing_sweep1", "readonly")
+    dataref("wingsweep2", "sim/flightmodel/movingparts/wing_sweep2", "readonly")
 
 
 
@@ -90,16 +96,36 @@ function getData()
     data.fuel_wgt = fuel_wgt
     data.payload_wgt = payload_wgt
     data.gear1 = gear1
+    data.gear2 = gear2
+    data.gear3 = gear3
+    data.gear4 = gear4
+    data.gear5 = gear5
+
     data.flap1_pos = flap1_pos
     data.flap2_pos = flap2_pos
+
     data.spoilerL = spoilerL
     data.spoilerR = spoilerR
-    data.elv1 = elv1
-    data.elv2 = elv2
+
+    data.elv1_1 = elv1_1
+    data.elv1_2 = elv1_2
+    data.elv2_1 = elv2_1
+    data.elv2_2 = elv2_2
+
     data.rudd1 = rudd1
     data.rudd2 = rudd2
-    data.ail1 = ail1
-    data.ail2 = ail2
+
+    data.ail1l = ail1l
+    data.ail2l = ail2l
+    data.ail1r = ail1r
+    data.ail2r = ail2r
+
+    data.tailhook = tailhook
+    data.canopy = canopy
+    data.sweep1 = wingsweep1
+    data.sweep2 = wingsweep2
+
+
     data.parkbrake = parkbrake
 
     data.acf_type = PLANE_ICAO
@@ -139,17 +165,38 @@ function exportData()
     file:write(data.payload_wgt, ",\n")
     file:write("-!- MECHANICAL DATA -!-\n")
     file:write(data.gear1, ",\n")
+    file:write(data.gear2, ",\n")
+    file:write(data.gear3, ",\n")
+    file:write(data.gear4, ",\n")
+    file:write(data.gear5, ",\n")
+
     file:write(data.flap1_pos, ",\n")
     file:write(data.flap2_pos, ",\n")
+
     file:write(data.spoilerL, ",\n")
     file:write(data.spoilerR, ",\n")
-    file:write(data.elv1, ",\n")
-    file:write(data.elv2, ",\n")
+
+    file:write(data.elv1_1, ",\n")
+    file:write(data.elv1_2, ",\n")
+    file:write(data.elv2_1, ",\n")
+    file:write(data.elv2_2, ",\n")
+
     file:write(data.rudd1, ",\n")
     file:write(data.rudd2, ",\n")
-    file:write(data.ail1, ",\n")
-    file:write(data.ail2, ",\n")
+
+    file:write(data.ail1l, ",\n")
+    file:write(data.ail2l, ",\n")
+    file:write(data.ail1r, ",\n")
+    file:write(data.ail2r, ",\n")
+
     file:write(data.parkbrake, ",\n")
+
+    file:write("-!- MILITARY SPECIFIC DATA -!-\n")
+    file:write(data.tailhook, ",\n")
+    file:write(data.canopy, ",\n")
+    file:write(data.sweep1, ",\n")
+    file:write(data.sweep2, ",\n")
+
     file:close()
 end
 
